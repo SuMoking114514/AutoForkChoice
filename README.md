@@ -90,6 +90,20 @@ PVE 岔路口按**骰子剩余步数**推演落点，**只有落点正好停在�
 - 插件 id `AutoForkChoice`，`permissions = 3`（`ReadGameState | GameActions`）——需要「操作游戏」权限才能替你点方向
 - 只在**自己回合、且确实处于选方向状态**时动作，不会乱点
 
+## 反馈问题
+
+遇到**选错方向 / 该动时不动 / 报错 / 日志刷屏**，请到
+[Issues](https://github.com/SuMoking114514/AutoForkChoice/issues/new/choose) 提一条，有模板照着填就行。
+
+最好带上这几样，定位会快很多：
+
+- 本模组版本（看 `mods\AutoForkChoice\AutoForkChoice.json`）、CesiumLoader 版本、游戏版本
+- 出问题那个岔路口的**截图**
+- 把 `config.json` 里的 `DebugLog` 改成 `true`，重开游戏复现一次，然后从
+  `AstralParty_ModLoader\logs\activity-mod-*.log` 里捞出 `[AutoForkChoice]` 开头的行贴上来
+
+也可以到 CesiumLoader 的企鹅群 **1078464597** 或 [Discord](https://discord.gg/SZaYSwGX94) 反馈。
+
 ## 授权
 
 本模组代码为原创，以 **MIT** 协议发布。
