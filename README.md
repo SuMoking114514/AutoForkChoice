@@ -7,6 +7,17 @@ PVE 岔路口按**骰子剩余步数**推演落点，**只有落点正好停在�
 吉星派对的岔路口选方向是纯手工操作。想「踩到疾行再走一次」时，你得自己数格子——而且岔路不止一个，每张图都不一样。
 本模组把这件事交给代码：按剩余步数把每个方向都算到底，只有真的能踩中疾行才替你点。
 
+## 开发说明
+
+本模组的实现由 **DSH（DeepSeek Harness）** 代理完成，包括：
+
+- 游戏托管程序集（`AstralParty.Runtime`）的反编译与 API 勘察：`MoveArrowManager`、`Character.canStep`、`UnitLand.GetNodeInfo().neighborLandIds`、`LandType` 枚举等
+- 判定方案设计与 C# 代码实现（`ForkController.cs`）
+- 立项编译、打包与发布流程
+
+作者负责提出需求、在实机对局中验证效果、并决定最终行为（例如「算不出确定结论就不动手」这条规则）。
+`LandType` 里哪个值是「疾行」也不是猜的——是用模组自己 dump 出的全图地块类型表，配合实机表现对出来的。
+
 ## 判定规则
 
 每 80ms 检查一次：是否在战斗场景、是否轮到自己、是否处于选方向状态（`MoveArrowManager.IsSelectDir`）。
